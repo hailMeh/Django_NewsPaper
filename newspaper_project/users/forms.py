@@ -5,10 +5,10 @@ from .models import CustomUser  # импорт дополнительных по
 class CustomUserCreationForm(UserCreationForm):
     class Meta(UserCreationForm):  # Изменение существующего стандарта формы
         model = CustomUser  # берем новую модель
-        fields = UserCreationForm.Meta.fields + ('age', 'hairColor')  # из модели добавляются поля по порядку
+        fields = ('username', 'age', 'hairColor', 'email',)  # из модели добавляются поля по порядку
 
 
 class CustomUserChangeForm(UserChangeForm):
-    class Meta(UserChangeForm):
+    class Meta:
         model = CustomUser
-        fields = UserChangeForm.Meta.fields
+        fields = ('username', 'age', 'hairColor', 'email',)

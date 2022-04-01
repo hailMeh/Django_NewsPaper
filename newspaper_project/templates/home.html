@@ -3,5 +3,17 @@
 
 
 {% block content %}
-
+    {% if user.is_authenticated %}
+        <section class="bg-green-100">
+            <div class="container mx-auto">
+                <div class="grid grid-cols-5 text-md font-semibold py-2">
+                    <div>Имя {{ user.username }}</div>
+                    <div>Возраст - {% if user.age == None %} Не указано {% else %} {{ user.age }}{% endif %}</div>
+                    <div>Почта - {{ user.email }}</div>
+                    <div>Работник - {{ user.is_staff }}</div>
+                    <div>Цвет волос - {% if user.hairColor == None %} Не указано {% else %} {{ user.hairColor }}{% endif %}</div>
+                </div>
+            </div>
+        </section>
+    {% endif %}
 {% endblock content %}
