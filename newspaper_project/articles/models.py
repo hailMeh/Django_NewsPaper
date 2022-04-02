@@ -19,3 +19,17 @@ class Article(models.Model):
 
     def get_absolute_url(self):
         return reverse('article_details', args=[str(self.id)])
+
+
+class Comment(models.Model):
+    article = models.ForeignKey('Article', on_delete=models.CASCADE, related_name='comments',)  # Много комментариев к одной новости
+    comment = models.CharField(max_length=150)
+    author = models.ForeignKey(get_user_model(), on_delete=models.CASCADE,
+                               )  # Считывается залогиненный автор
+
+    def __str__(self):
+        return self.comment  # для отображения в админке коммента
+
+
+    def get_absolute_url(self):
+        return reverse('article_list')
