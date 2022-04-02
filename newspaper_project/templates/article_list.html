@@ -4,17 +4,10 @@
 {% block content %}
     <section class="my-8">
         <div class="container mx-auto">
-            <div class="grid grid-cols-2 gap-8">
+            <div class="grid grid-cols-3 gap-8">
                 {% for o in object_list %}
 
-                    <div class="flex gap-6 items-center">
-                        <a href="{% url 'article_details' o.pk %}">
-                            <div>
-                                <img class="object-cover rounded-full border-2"
-                                     src="https://avatars.mds.yandex.net/i?id=a6aab1758dbe078c0d4b2fcbb3474724-4467477-images-thumbs&n=13"
-                                     alt="">
-                            </div>
-                        </a>
+                    <div class="flex items-center justify-center border-2 rounded-lg p-4">
                         <div class="flex flex-col">
                             <a href="{% url 'article_details' o.pk %}">
                                 <div class="text-xl font-bold py-2"> {{ o.title }}<span class=" pl-2 text-sm font-light">

@@ -1,5 +1,5 @@
 from django.views.generic import ListView, DetailView
-from django.views.generic.edit import UpdateView, DeleteView
+from django.views.generic.edit import UpdateView, DeleteView, CreateView
 from .models import Article
 from django.urls import reverse_lazy
 # Create your views here.
@@ -27,3 +27,11 @@ class ArticleDeleteView(DeleteView):
     success_url = reverse_lazy('article_list')
 
 
+class ArticleCreateView(CreateView):
+    model = Article
+    template_name = 'article_create.html'
+    fields = ('title', 'body')  # Добавлялось еще поле Author, но внизу метод def_valid ...
+
+    def form_valid(self, form):  # ... автоматически добавляет авторизованного юзера в поле authors
+        form.instance.author = self.request.user
+        return super().form_valid(form)
