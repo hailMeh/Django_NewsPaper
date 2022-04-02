@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Delete{% endblock title %}
+{% block content %}
+    <section>
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1">
+                <div class="place-self-center">
+                    <h2 class="text-2xl text-center font-bold py-4">Are you sure you want to
+                        delete {{ article.message }}</h2>
+                    <form method="post">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <button class="rounded-xl bg-indigo-100 hover:bg-blue-200 p-2 ml-24 my-4 text-sm text-center font-bold"
+                                type="submit">Delete
+                        </button>
+                        <a class="rounded-xl bg-indigo-100 hover:bg-blue-200 p-2 ml-24 my-4 text-sm text-center font-bold"
+                           href="{% url 'article_list' %}">Back</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock content %}

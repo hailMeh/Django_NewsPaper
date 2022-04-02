@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Articles{% endblock title %}
+
+{% block content %}
+    <section class="my-8">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-2 gap-8">
+                {% for o in object_list %}
+
+                    <div class="flex gap-6 items-center">
+                        <a href="{% url 'article_details' o.pk %}">
+                            <div>
+                                <img class="object-cover rounded-full border-2"
+                                     src="https://avatars.mds.yandex.net/i?id=a6aab1758dbe078c0d4b2fcbb3474724-4467477-images-thumbs&n=13"
+                                     alt="">
+                            </div>
+                        </a>
+                        <div class="flex flex-col">
+                            <a href="{% url 'article_details' o.pk %}">
+                                <div class="text-xl font-bold py-2"> {{ o.title }}<span class=" pl-2 text-sm font-light">
+                                by {{ o.author }}</span></div>
+                                <div class="text-sm font-light py-2"> {{ o.date }}</div>
+                                <div class="text-sm font-medium leading-4 py-4"> {{ o.body }}</div>
+                            </a>
+                            <div class="flex justify-center gap-4">
+                                <a class="py-2 px-4 text-white bg-yellow-600 hover:bg-yellow-500 rounded-xl"
+                                   href="{% url 'article_edit' o.pk %}">Edit</a>
+                                <a class="py-2 px-4 text-white bg-red-600 hover:bg-red-500 rounded-xl"
+                                   href="{% url 'article_delete' o.pk %}">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+{% endblock content %}
