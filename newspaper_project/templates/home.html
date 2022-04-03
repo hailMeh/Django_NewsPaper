@@ -11,7 +11,7 @@
                     <div class="col-span-5 text-center gap-2 text-4xl pt-8">Добрый день {{ user.username }}!</div>
 
 
-                    <div class="text-xl font-md">Ваш возраст {% if user.age == None %} Не указано {% else %}
+                    <div class="text-xl font-md">Ваш возвраст {% if user.age == None %} Не указано {% else %}
                         {{ user.age }} лет{% endif %}</div>
                     <div class="text-xl font-md col-span-2">Ваша почта - {{ user.email }}</div>
                     <div class="text-xl font-md">Работник - {{ user.is_staff }}</div>
