@@ -40,11 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     # 3rd Party
-    "crispy_forms",
+    "crispy_forms",  #  Регистрация пакета с формами
 
 
     # Local
-    'users.apps.UsersConfig',
+    'users.apps.UsersConfig',  # Правильная регистрация приложения
     'pages.apps.PagesConfig',
     'articles.apps.ArticlesConfig'
 ]
@@ -64,7 +64,7 @@ ROOT_URLCONF = 'newspaper_project.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR / 'templates')]
+        'DIRS': [os.path.join(BASE_DIR / 'templates')]  # Путь к шаблонам, в PyCharm указать красную папку templates
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -114,7 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'ru-ru'
+LANGUAGE_CODE = 'ru-ru' # en-en
 
 TIME_ZONE = 'Europe/Moscow'
 
@@ -133,9 +133,9 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTH_USER_MODEL = 'users.CustomUser'  # Регистрации измененной модели авторизации
+AUTH_USER_MODEL = 'users.CustomUser'  # Регистрации измененной модели авторизации CustomUser
 
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # Команда для активации отправки писем на почту

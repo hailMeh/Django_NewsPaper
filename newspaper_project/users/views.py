@@ -1,7 +1,6 @@
-from django.shortcuts import render
-from django.views.generic import CreateView
-from .forms import CustomUserCreationForm
-from django.urls import reverse_lazy
+from django.views.generic import CreateView  # Класс для создания формы
+from .forms import CustomUserCreationForm  # Импорт измененной модели создания формы
+from django.urls import reverse_lazy  # Редирект при успешном сабмите в переданный аргумент(url)
 
 
 class SignUpView(CreateView):

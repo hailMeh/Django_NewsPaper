@@ -3,17 +3,43 @@
 
 
 {% block content %}
-    {% if user.is_authenticated %}
-        <section class="bg-green-100">
-            <div class="container mx-auto">
-                <div class="grid grid-cols-5 text-md font-semibold py-2">
-                    <div>Имя {{ user.username }}</div>
-                    <div>Возраст - {% if user.age == None %} Не указано {% else %} {{ user.age }}{% endif %}</div>
-                    <div>Почта - {{ user.email }}</div>
-                    <div>Работник - {{ user.is_staff }}</div>
-                    <div>Цвет волос - {% if user.hairColor == None %} Не указано {% else %} {{ user.hairColor }}{% endif %}</div>
+
+        <section class="bg-green-50">
+            <div class="container mx-auto h-screen">
+                {% if user.is_authenticated %}
+                <div class="grid grid-cols-5 text-md font-semibold py-2 gap-4 mb-12 mx-8">
+                    <div class="col-span-5 text-center gap-2 text-4xl pt-8">Добрый день {{ user.username }}!</div>
+
+
+                    <div class="text-xl font-md">Ваш возраст {% if user.age == None %} Не указано {% else %}
+                        {{ user.age }} лет{% endif %}</div>
+                    <div class="text-xl font-md col-span-2">Ваша почта - {{ user.email }}</div>
+                    <div class="text-xl font-md">Работник - {{ user.is_staff }}</div>
+                    <div class="text-xl font-md text-center">Ваш цвет волос - {% if user.hairColor == None %} Не
+                        указано {% else %} {{ user.hairColor }}{% endif %}</div>
+                </div>
+                {% endif %}
+                <div class="grid grid-cols-3 gap-2">
+                    <div><img alt="" class="h-full object-cover border-2 border-black rounded"
+                              src="https://avatars.mds.yandex.net/i?id=4a99a80137943f699b7596bf4b323250-5878985-images-thumbs&n=13">
+                    </div>
+                    <div><img alt="" class="h-full object-cover border-2 border-black rounded"
+                              src="https://avatars.mds.yandex.net/i?id=c67f0dc52ab35de90ccf87bf26b01947-4396877-images-thumbs&n=13">
+                    </div>
+                    <div><img alt="" class="h-full object-cover border-2 border-black rounded"
+                              src="https://avatars.mds.yandex.net/i?id=2a0000017a0c7ae1051bb80ca77824a691a9-3907639-images-thumbs&n=13">
+                    </div>
+                    <div><img alt="" class="h-full object-cover border-2 border-black rounded"
+                              src="https://avatars.mds.yandex.net/i?id=041a3dce3dc8eec8c7d58b330e4bea36-5888509-images-thumbs&n=13">
+                    </div>
+                    <div><img alt="" class="h-full object-cover border-2 border-black rounded"
+                              src="https://avatars.mds.yandex.net/i?id=a27258d3862ab495ac7ebb1e79ce1e77-5508813-images-thumbs&n=13">
+                    </div>
+                    <div><img alt="" class="h-full object-cover border-2 border-black rounded"
+                              src="https://avatars.mds.yandex.net/i?id=f0bfccc6af3e94b8330cd94ad7eed32b-5843137-images-thumbs&n=13">
+                    </div>
                 </div>
             </div>
         </section>
-    {% endif %}
+
 {% endblock content %}

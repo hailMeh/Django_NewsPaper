@@ -32,7 +32,8 @@ class ArticleUpdateView(LoginRequiredMixin, UserPassesTestMixin,
         return obj.author == self.request.user
 
 
-class ArticleDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):  # Миксин не дает гостю зайти на url удаления сообщения
+class ArticleDeleteView(LoginRequiredMixin, UserPassesTestMixin,
+                        DeleteView):  # Миксин не дает гостю зайти на url удаления сообщения
     model = Article
     template_name = 'article_delete.html'
     success_url = reverse_lazy('article_list')
